@@ -235,3 +235,9 @@ Install:
 Node.js
 PostgreSQL
 Git
+👩‍💻 Author
+
+**Arpitha Gowda**  
+Computer Science and Engineering
+
+🔗 [GitHub](https://github.com/Arpitha-23)
