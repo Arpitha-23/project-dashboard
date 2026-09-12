@@ -227,6 +227,31 @@ project-dashboard/
 │
 └── README.md
 
+### Live Activity Feed
+
+The application implements a real-time activity feed using **Socket.IO WebSockets**.
+
+Whenever a task status changes, the backend:
+
+1. Updates the task status in PostgreSQL through Prisma.
+2. Creates an activity record containing the user, task, project, status change, and timestamp.
+3. Emits the activity through Socket.IO.
+4. Connected users viewing the relevant project receive the update immediately without refreshing the page.
+5. Activity records are persisted in PostgreSQL so they are not lost when users disconnect.
+
+Example:
+
+> Ravi moved Task #12 from IN_PROGRESS to IN_REVIEW
+
+The activity feed is filtered according to the user's role:
+- **Admin:** Global activity feed.
+- **Project Manager:** Activity for projects they created.
+- **Developer:** Activity for tasks assigned to them.
+
+### Why Socket.IO?
+
+Socket.IO was chosen instead of implementing native WebSocket directly because it provides built-in connection management, automatic reconnection, event-based communication, rooms, and reliable client-server event handling. These features simplify implementing project-specific activity channels and notifications while maintaining a real-time user experience.
+
 💻 Local Setup
 Prerequisites
 
