@@ -252,6 +252,13 @@ The activity feed is filtered according to the user's role:
 
 Socket.IO was chosen instead of implementing native WebSocket directly because it provides built-in connection management, automatic reconnection, event-based communication, rooms, and reliable client-server event handling. These features simplify implementing project-specific activity channels and notifications while maintaining a real-time user experience.
 
+### Docker
+
+Docker configuration is not currently included. The application can be run locally using Node.js, PostgreSQL, Prisma, and the provided environment variables.
+
+Dockerization is a planned improvement for simplifying local setup and deployment consistency.
+
+
 💻 Local Setup
 Prerequisites
 
